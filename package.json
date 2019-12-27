@@ -11,6 +11,9 @@
     "type": "git",
     "url": "https://github.com/kyriesent/node-rtsp-stream.git"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  },
   "author": "David Jsa <david@jsa.me>",
   "license": "MIT",
   "devDependencies": {
