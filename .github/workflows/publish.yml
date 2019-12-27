@@ -1,0 +1,24 @@
+name: Publish to Registry
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: yarn install
+    - name: Build
+      run: yarn run build
+    - name: Create .npmrc
+      run: echo "//npm.pkg.github.com/:_authToken=$PUBLISH_TOKEN" >> ~/.npmrc
+      env:
+        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+    - name: Publish
+      run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"} --no-git-tag-version
