@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install ffmpeg
-      run: sudo add-apt-repository ppa:mc3man/trusty-media && sudo apt-get update && sudo apt-get install ffmpeg
+      run: sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next && sudo apt-get update && sudo apt-get install ffmpeg
     - name: Install dependencies
       run: yarn install
     - name: Build
