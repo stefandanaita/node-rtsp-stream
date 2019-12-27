@@ -16,8 +16,6 @@ jobs:
       run: sudo add-apt-repository ppa:jonathonf/ffmpeg-4 && sudo apt-get update && sudo apt-get install ffmpeg
     - name: Install dependencies
       run: yarn install
-    - name: Build
-      run: yarn run build
     - name: Create .npmrc
       run: echo "//npm.pkg.github.com/:_authToken=$PUBLISH_TOKEN" >> ~/.npmrc
       env:
